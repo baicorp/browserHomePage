@@ -1,0 +1,122 @@
+@font-face {
+  font-family: "open-sans";
+  src: url("../src/assets/fonts/OpenSans-VariableFont_wdth\,wght.ttf")
+    format("truetype");
+  font-display: swap;
+}
+
+@import "tailwindcss";
+
+@theme {
+  /* override default sans-serif fonts */
+  --font-sans: "open-sans", system-ui, sans-serif;
+
+  --color-themed-bg: #edeef0;
+  --color-themed-text: #000118;
+  --color-themed-text-muted: #9999a3;
+  --color-themed-bg-card: #fff;
+  --color-themed-hover: #f5f5f5;
+  --color-themed-icon: #0f0e13;
+  --color-themed-highlight: #d4d4d4;
+  --color-themed-inverted-bg: #0f0e13;
+  --color-themed-inverted-text: #fff;
+
+  --shadow-themed-card: 0px 2px 8px rgba(0, 0, 0, 0.12),
+    0px 24px 40px rgba(0, 0, 0, 0.08);
+}
+
+@layer base {
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #9999a3 transparent;
+  }
+
+  *::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #222;
+    border-radius: 5px;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #999;
+    border-radius: 14px;
+    border: 3px solid #222;
+  }
+
+  * {
+    transition: background-color 0.2s ease-out;
+  }
+
+  html,
+  body {
+    background: var(--color-themed-bg);
+    color: var(--color-themed-text);
+  }
+
+  html[data-theme="dark"] {
+    background: var(--color-themed-bg);
+    color: var(--color-themed-text);
+
+    --color-themed-bg: #0f0e13;
+    --color-themed-text: #fff;
+    --color-themed-text-muted: #656565;
+    --color-themed-bg-card: #2a2a2a;
+    --color-themed-hover: #333333;
+    --color-themed-icon: #edeef0;
+    --color-themed-highlight: #737373;
+    --color-themed-inverted-bg: #edeef0;
+    --color-themed-inverted-text: #000118;
+
+    --shadow-themed-card: 0px 2px 8px rgba(0, 0, 0, 0.5),
+      0px 24px 40px rgba(0, 0, 0, 0.3);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    html[data-theme="auto"] {
+      background: var(--color-themed-bg);
+      color: var(--color-themed-text);
+
+      --color-themed-bg: #0f0e13;
+      --color-themed-text: #fff;
+      --color-themed-text-muted: #656565;
+      --color-themed-bg-card: #2a2a2a;
+      --color-themed-hover: #333333;
+      --color-themed-icon: #edeef0;
+      --color-themed-highlight: #737373;
+      --color-themed-inverted-bg: #edeef0;
+      --color-themed-inverted-text: #000118;
+
+      --shadow-themed-card: 0px 2px 8px rgba(0, 0, 0, 0.5),
+        0px 24px 40px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@layer components {
+  .btn {
+    background: var(--color-themed-inverted-bg);
+    color: var(--color-themed-inverted-text);
+  }
+
+  .btn:hover {
+    background: var(--color-themed-inverted-bg) / 70;
+  }
+
+  .card {
+    background: var(--color-themed-bg-card);
+  }
+
+  .input {
+    background: var(--color-themed-bg);
+    color: var(--color-themed-text);
+    border: none;
+    outline: none;
+  }
+}
