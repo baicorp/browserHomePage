@@ -11,4 +11,8 @@ export default defineConfig({
       "process.env.IP_INFO_TOKEN": JSON.stringify(process.env.IP_INFO_TOKEN),
     },
   },
+  html: {
+    title: "Wellcome",
+    favicon: "./src/favicon-32x32.png",
+  },
 });
