@@ -48,7 +48,7 @@ function ListTodo({
 }) {
   return todoData.length === 0 ? (
     <div className="grow flex justify-center items-center">
-      <p className="text-themed-text-gray">Empty nih bos</p>{" "}
+      <p className="text-themed-text-gray">Empty</p>{" "}
     </div>
   ) : (
     <div className="grow flex flex-col gap-1 overflow-y-auto">
