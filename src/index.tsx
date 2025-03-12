@@ -32,17 +32,20 @@ function Theme({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     const savedTheme = localStorage.getItem(KeyTheme);
     if (
-      savedTheme !== "auto" &&
-      savedTheme !== "light" &&
-      savedTheme !== "dark"
-    )
+      savedTheme === "auto" ||
+      savedTheme === "light" ||
+      savedTheme === "dark"
+    ) {
+      const html: HTMLElement = document.documentElement;
+      html.setAttribute("data-theme", savedTheme);
+
+      setTheme(savedTheme);
       return;
+    }
 
     const html: HTMLElement = document.documentElement;
-    html.setAttribute("data-theme", savedTheme);
-
-    setTheme(savedTheme);
-  }, []);
+    html.setAttribute("data-theme", theme);
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>

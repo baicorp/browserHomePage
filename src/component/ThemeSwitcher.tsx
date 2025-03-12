@@ -18,10 +18,8 @@ export default function ThemeSwitcher() {
       <button
         key={themeBtn.key}
         onClick={() => {
-          const html: HTMLElement = document.documentElement;
-          html.setAttribute("data-theme", themeBtn.key);
-          localStorage.setItem(KeyTheme, themeBtn.key);
           setTheme(themeBtn.key);
+          localStorage.setItem(KeyTheme, themeBtn.key);
         }}
         className={`rounded-full ${
           theme === themeBtn.key && "bg-themed-highlight"
